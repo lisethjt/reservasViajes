@@ -1,0 +1,29 @@
+<h2>{{titulo}}</h2>
+<hr>
+<div *ngIf="!hotelsList">
+    Cargando listado de productos ....    
+</div>
+<div *ngIf="hotelsList">
+
+   
+   
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Category</th>
+          <th scope="col">Price</th>
+          <th scope="col">Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of hotelsList">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.price}}</td>
+        </tr>
+      </tbody>
+</table>
+</div>
