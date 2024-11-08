@@ -4,7 +4,7 @@ export class Hotel {
         public  id: number,
         public  name: String,
         public  category: String,
-        public  price: String
+        public  price: number
     ){
     }
 }

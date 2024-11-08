@@ -15,7 +15,7 @@ export class HotelsListComponent {
   constructor(
     private _hotelService: HotelService
   ) {
-    this.titulo = "Landing Hotels";
+    this.titulo = "Listado de Hoteles";
     this.hotelsList = [];  
   }
 
@@ -30,9 +30,8 @@ export class HotelsListComponent {
           this.hotelsList = result;         
          
       },
-        (error: any) => {
-          var errorMessage = <any>error;
-          console.log(errorMessage);
+        (error: any) => {          
+          console.log(<any>error);
         }
       );
   }

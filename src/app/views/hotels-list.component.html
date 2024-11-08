@@ -1,20 +1,19 @@
+<br>
 <h2>{{titulo}}</h2>
 <hr>
 <div *ngIf="!hotelsList">
     Cargando listado de productos ....    
 </div>
 <div *ngIf="hotelsList">
-
+  <a [routerLink]="['/new-hotel']" [routerLinkActive]="['activado']">Crear Hotel</a>   
    
-   
-<table class="table table-striped">
+<table class="table table-striped table-hover">
     <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Category</th>
-          <th scope="col">Price</th>
-          <th scope="col">Available</th>
+          <th scope="col">Price</th>         
         </tr>
       </thead>
       <tbody>

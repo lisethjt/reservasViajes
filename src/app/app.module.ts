@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { HotelsListComponent } from './hotels/hotels-list.component';
+import { HotelAddComponent } from './hotels/hotel-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ErrorComponent,
-    HotelsListComponent
+    HotelsListComponent,
+    HotelAddComponent
   ],
   imports: [
     BrowserModule,
