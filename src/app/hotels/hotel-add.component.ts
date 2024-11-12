@@ -16,7 +16,6 @@ export class HotelAddComponent {
 
   constructor(
     private _hotelService: HotelService,
-		private _route: ActivatedRoute,
 		private _router: Router
   ) {
     this.titulo = "Crear Hotel";
@@ -24,7 +23,6 @@ export class HotelAddComponent {
   }
 
   onSubmit() {
-    console.log('tartatatata' + this.hotel.name);
     this._hotelService.addHotel(this.hotel).subscribe(
       (response: any) => {
         this._router.navigate(['/hotels']);

@@ -2,27 +2,44 @@
 <h2>{{titulo}}</h2>
 <hr>
 <div *ngIf="!hotelsList">
-    Cargando listado de productos ....    
+  Cargando listado de productos ....
 </div>
 <div *ngIf="hotelsList">
-  <a [routerLink]="['/new-hotel']" [routerLinkActive]="['activado']">Crear Hotel</a>   
-   
-<table class="table table-striped table-hover">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a [routerLink]="['/new-hotel']" [routerLinkActive]="['activado']" class="btn btn-md btn-primary">Crear Hotel</a>
+  </div>
+  <table class="table table-striped table-hover">
     <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Category</th>
-          <th scope="col">Price</th>         
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of hotelsList">
-            <th scope="row">{{item.id}}</th>
-            <td>{{item.name}}</td>
-            <td>{{item.category}}</td>
-            <td>{{item.price}}</td>
-        </tr>
-      </tbody>
-</table>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of hotelsList">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.category}}</td>
+        <td>{{item.price}}</td>
+        <td>
+          <div class="d-grid gap-2 d-md-block">
+            <a [routerLink]="['/edit-hotel', item.id]" class="btn btn-md btn-warning">Editar</a>
+            <a (click)="deleteConfirm(item.id)" class="btn btn-md btn-danger">Borrar</a>
+          </div>
+        </td>
+
+        <div class="seguro" *ngIf="confirmed == item.id" >
+          <a (click)="onDeleteHotel(item.id)" class="btn btn-md btn-danger">
+            Quiero eliminarlo
+          </a>
+          <a (click)="cancelConfirm()" class="btn btn-md btn-warning">Cancelar</a>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+
+
 </div>
