@@ -9,7 +9,9 @@
         <div class="col-lg-3" *ngFor="let hotel of hotelsList">
             <div class="thumbnail">
                 <div *ngIf="hotel.image">
-                    <div style="height: 10rem;">dfdf</div>
+                    <div >
+                        <img [src]="hotel.image | base64: 'image/jpeg'" *ngIf="hotel.image" style="height: 10rem; max-width: 16rem;"/>
+                    </div>
                 </div>
                 <div *ngIf="!hotel.image">
                     <div class="card bg-secondary mb-3" style="height: 10rem;"></div>

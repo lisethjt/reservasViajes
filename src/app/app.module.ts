@@ -12,6 +12,7 @@ import { HotelsListComponent } from './hotels/hotels-list.component';
 import { HotelAddComponent } from './hotels/hotel-add.component';
 import { HotelEditComponent } from './hotels/hotel-edit.component';
 import { HotelSelectComponent } from './reservations/hotel-select.component';
+import { Base64Pipe } from './pipes/convert-base64-img.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HotelSelectComponent } from './reservations/hotel-select.component';
     HotelsListComponent,
     HotelAddComponent,
     HotelEditComponent,
-    HotelSelectComponent
+    HotelSelectComponent,
+    Base64Pipe
   ],
   imports: [
     BrowserModule,
