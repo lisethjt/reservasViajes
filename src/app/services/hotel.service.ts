@@ -13,8 +13,6 @@ import { urlencoded } from 'express';
 })
 export class HotelService {
 
-  
-  
   public url: String;
   constructor(private _http: HttpClient) {
     this.url = GLOBAL.url;
@@ -25,18 +23,22 @@ export class HotelService {
   }
 
   addHotel(hotel: Hotel) {
-    return this._http.post(this.url+'', hotel,{responseType: 'text'});
+    return this._http.post(this.url + '', hotel, { responseType: 'text' });
   }
 
-  getHotel(id: number){
+  getHotel(id: number) {
     return this._http.get(this.url + '/' + id);
   }
 
-  updateHotel(hotel: Hotel,id: number) {
-    return this._http.put(this.url + '/' + id, hotel,{responseType: 'text'})
+  updateHotel(hotel: Hotel, id: number) {
+    return this._http.put(this.url + '/' + id, hotel, { responseType: 'text' })
   }
 
   deteleHotel(id: number) {
     return this._http.get(this.url + '/delete/' + id);
+  }
+
+  getAvailable() {
+    return this._http.get(this.url + '/getAvailable');
   }
 }

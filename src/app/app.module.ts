@@ -11,6 +11,7 @@ import { ErrorComponent } from './error/error.component';
 import { HotelsListComponent } from './hotels/hotels-list.component';
 import { HotelAddComponent } from './hotels/hotel-add.component';
 import { HotelEditComponent } from './hotels/hotel-edit.component';
+import { HotelSelectComponent } from './reservations/hotel-select.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HotelEditComponent } from './hotels/hotel-edit.component';
     ErrorComponent,
     HotelsListComponent,
     HotelAddComponent,
-    HotelEditComponent
+    HotelEditComponent,
+    HotelSelectComponent
   ],
   imports: [
     BrowserModule,
