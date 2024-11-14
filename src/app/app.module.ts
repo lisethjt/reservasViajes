@@ -12,7 +12,9 @@ import { HotelsListComponent } from './hotels/hotels-list.component';
 import { HotelAddComponent } from './hotels/hotel-add.component';
 import { HotelEditComponent } from './hotels/hotel-edit.component';
 import { HotelSelectComponent } from './reservations/hotel-select.component';
+import { PlaneSelectComponent } from './reservations/plane-select.component';
 import { Base64Pipe } from './pipes/convert-base64-img.pipe';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { Base64Pipe } from './pipes/convert-base64-img.pipe';
     HotelAddComponent,
     HotelEditComponent,
     HotelSelectComponent,
-    Base64Pipe
+    Base64Pipe,
+    PlaneSelectComponent
   ],
   imports: [
     BrowserModule,
