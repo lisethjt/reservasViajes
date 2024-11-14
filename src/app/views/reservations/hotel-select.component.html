@@ -7,18 +7,22 @@
 <div *ngIf="hotelsList.length>0">
     <div class="row">
         <div class="col-lg-3" *ngFor="let hotel of hotelsList">
-            <div class="thumbnail">
+            <div class="card mb-3" style="width: 16rem;">
                 <div *ngIf="hotel.image">
-                    <div >
+                    <div class="card bg-secondary mb-3">
                         <img [src]="hotel.image | base64: 'image/jpeg'" *ngIf="hotel.image" style="height: 10rem; max-width: 16rem;"/>
                     </div>
                 </div>
                 <div *ngIf="!hotel.image">
-                    <div class="card bg-secondary mb-3" style="height: 10rem;"></div>
+                    <div class="card bg-secondary mb-3" style="height: 10rem; max-width: 16rem;"></div>
                 </div>
-                <div class="caption">
+                <div class="card-body">
                     <h3>{{hotel.name}}</h3>
                     <p>{{hotel.price}} $</p>
+
+                    <div class="botones" >                       
+                        <a class="btn btn-md btn-danger">Seleccionar</a>
+                    </div>
                 </div>
             </div>
         </div>
