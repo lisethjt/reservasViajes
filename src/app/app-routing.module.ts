@@ -8,6 +8,7 @@ import { HotelAddComponent } from './hotels/hotel-add.component';
 import { HotelEditComponent } from './hotels/hotel-edit.component';
 import { HotelSelectComponent } from './reservations/hotel-select.component';
 import { PlaneSelectComponent } from './reservations/plane-select.component';
+import { BookingAddComponent } from './reservations/booking-add.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'new-hotel', component: HotelAddComponent },
   {path: 'edit-hotel/:id', component: HotelEditComponent },
   {path: 'select-hotel', component: HotelSelectComponent },
-  {path: 'select-plane', component: PlaneSelectComponent },
+  {path: 'select-plane/:hotelId', component: PlaneSelectComponent },  
+  {path: 'app-booking', component: BookingAddComponent },  
   {path: '**', component: ErrorComponent }
 ];
 

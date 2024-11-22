@@ -1,8 +1,21 @@
 <br>
 <h2>{{titulo}}</h2>
 <hr>
-<div>
+<div *ngIf="!flightList">
     Cargando listado de vuelos ....
 </div>
-<div>
+<div *ngIf="flightList">
+    <div class="card" *ngFor="let flight of flightList">
+        <div class="card-header">
+            {{flight.company}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{flight.date | date:"medium" }}</h5>
+            <p class="card-text">{{flight.price | currency}}</p>
+            <p class="card-text">{{flight.chairs}} Sillas disponibles</p>
+            <button class="btn btn-md btn-danger" (click)="redirigir(flight.id)">Seleccionar</button>
+        </div>
+    </div>
+    <div>
+    </div>
 </div>

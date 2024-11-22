@@ -13,7 +13,9 @@ import { HotelAddComponent } from './hotels/hotel-add.component';
 import { HotelEditComponent } from './hotels/hotel-edit.component';
 import { HotelSelectComponent } from './reservations/hotel-select.component';
 import { PlaneSelectComponent } from './reservations/plane-select.component';
+import { BookingAddComponent } from './reservations/booking-add.component';
 import { Base64Pipe } from './pipes/convert-base64-img.pipe';
+
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { Base64Pipe } from './pipes/convert-base64-img.pipe';
     HotelEditComponent,
     HotelSelectComponent,
     Base64Pipe,
-    PlaneSelectComponent
+    PlaneSelectComponent,
+    BookingAddComponent
   ],
   imports: [
     BrowserModule,

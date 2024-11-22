@@ -19,7 +19,7 @@ export class HotelSelectComponent {
     private _hotelService: HotelService,
     private _sanitizer: DomSanitizer) {
     this.titulo = "Hoteles";
-    this.hotelsList = [];
+    this.hotelsList = [];    
   }
 
   ngOnInit(): void {
