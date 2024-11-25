@@ -15,12 +15,23 @@
         </div>
         <div class="col card m-2">
             <div class="card-header">
-                <strong> Vuelo</strong>
+                <strong>Vuelo</strong>
             </div>
             <div class="card-body">
-                <p class="card-text"></p>
-                <p class="card-text"></p>
+                <p class="card-text">{{flight.company}}, {{flight.date | date:"medium"}}</p>
+                <p class="card-text">{{flight.price | currency}}</p>
             </div>
         </div>
     </div>
+</div>
+
+<div class="col card m-2">
+
+    <form #formFlight="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6" id="form-flight">
+        <label>
+            Nombre:
+            <span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span>
+        </label>
+        <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="hotel.name" class="form-control" required />
+    </form>
 </div>

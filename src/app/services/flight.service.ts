@@ -17,4 +17,8 @@ export class FlightService {
   getFlightList(){
     return this._http.get(this.url + '/getFlightList');
   }
+
+  getFlight(id:number){
+    return this._http.get(this.url + '/'+id);
+  }
 }
