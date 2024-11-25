@@ -25,13 +25,22 @@
     </div>
 </div>
 
-<div class="col card m-2">
+<div class="col card m-4 p-3">
 
     <form #formFlight="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6" id="form-flight">
         <label>
-            Nombre:
-            <span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span>
+            Documento:
+            <span *ngIf="!dni.valid && dni.touched" class="label label-danger">El documento es obligatorio</span>
         </label>
-        <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="hotel.name" class="form-control" required />
+        <input type="text" #dni="ngModel" name="dni" [(ngModel)]="booking.dni" class="form-control" required />
+        <br>
+        <label>
+            Nombre:
+            <span *ngIf="!name.valid && name.touched" class="label label-danger">El nombre es obligatorio</span>
+        </label>
+        <input type="text" #name="ngModel" name="name" [(ngModel)]="booking.name" class="form-control" required />
+
+        <br/>
+	<input type="submit" value="Guardar Reserva" [disabled]="!formFlight.form.valid" class="btn btn-success"/>
     </form>
 </div>

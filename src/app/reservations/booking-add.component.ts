@@ -6,6 +6,7 @@ import { Hotel } from '../models/hotel';
 import { subscribe } from 'diagnostics_channel';
 import { FlightService } from '../services/flight.service';
 import { Flight } from '../models/flight';
+import { Booking } from '../models/booking';
 
 @Component({
   selector: 'app-booking-add',
@@ -19,19 +20,23 @@ export class BookingAddComponent {
   public flight: Flight;
   public hotelId: any;
   public flightId: any;
+  public booking: Booking;
 
   constructor(
     private _hotelService: HotelService, 
     private _flightService: FlightService
   ) {
+
+    this.hotelId = sessionStorage.getItem('hotelId');
+    this.flightId = sessionStorage.getItem('flightId');
+
     this.title = "Reservas";
     this.hotel = new Hotel(0, '', '', 0, '');
     this.flight = new Flight(0, '', new Date(), 0, '');
+    this.booking = new Booking(0, '','', this.hotelId, this.flightId);
   }
 
-  ngOnInit(): void {
-    this.hotelId = sessionStorage.getItem('hotelId');
-    this.flightId = sessionStorage.getItem('flightId');
+  ngOnInit(): void {   
     this.getHotel();
     this.getFlight();
   }
@@ -39,8 +44,7 @@ export class BookingAddComponent {
   getHotel() {
     this._hotelService.getHotel(this.hotelId).subscribe(
       (result: any) => {
-        this.hotel = result;
-        console.log(this.hotel);
+        this.hotel = result;       
       },
       (error: any) => {
         console.log(<any>error);
@@ -52,7 +56,6 @@ export class BookingAddComponent {
     this._flightService.getFlight(this.flightId).subscribe(
       (result:any)=>{
         this.flight = result.flight;
-        console.log(this.flight);
       },
       (error: any) => {
         console.log(<any>error);
