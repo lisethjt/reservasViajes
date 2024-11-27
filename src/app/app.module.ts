@@ -14,6 +14,7 @@ import { HotelEditComponent } from './hotels/hotel-edit.component';
 import { HotelSelectComponent } from './reservations/hotel-select.component';
 import { PlaneSelectComponent } from './reservations/plane-select.component';
 import { BookingAddComponent } from './reservations/booking-add.component';
+import { BookingListComponent } from './reservations/booking-list.component';
 import { Base64Pipe } from './pipes/convert-base64-img.pipe';
 
 
@@ -29,7 +30,8 @@ import { Base64Pipe } from './pipes/convert-base64-img.pipe';
     HotelSelectComponent,
     Base64Pipe,
     PlaneSelectComponent,
-    BookingAddComponent
+    BookingAddComponent,
+    BookingListComponent
   ],
   imports: [
     BrowserModule,

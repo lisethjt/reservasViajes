@@ -1,10 +1,11 @@
+<br>
 <div class="col-lg-10 col-lg-offset-1">
 	<div class="jumbotron">
 		<h2>{{titulo}}</h2>
 		<p>Gestiona tus reservas con la aplicación web SPA creada con Angular desde cero</p>
 		<p>
-			<a href="#" class="btn btn-lg btn-primary">Ver Reservas </a>
-			<a href="#" class="btn btn-lg btn-success"> Crear Reservas</a>
+			<a [routerLink]="['/bookings']" [routerLinkActive]="['activado']" class="btn btn-lg btn-primary">Ver Reservas </a>
+			<a [routerLink]="['/select-hotel']" [routerLinkActive]="['activado']" class="btn btn-lg btn-success"> Crear Reservas</a>
 		</p>
 	</div>
 </div>

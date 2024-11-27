@@ -12,9 +12,9 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Category</th>
-        <th scope="col">Price</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Precio</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -23,7 +23,7 @@
         <th scope="row">{{item.id}}</th>
         <td>{{item.name}}</td>
         <td>{{item.category}}</td>
-        <td>{{item.price}}</td>
+        <td>{{item.price | currency}}</td>
         <td>
           <div class="d-grid gap-2 d-md-block">
             <a [routerLink]="['/edit-hotel', item.id]" class="btn btn-md btn-warning">Editar</a>

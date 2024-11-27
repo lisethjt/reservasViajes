@@ -18,7 +18,7 @@
                 </div>
                 <div class="card-body">
                     <h3>{{hotel.name}}</h3>
-                    <p>{{hotel.price}} $</p>
+                    <p>{{hotel.price | currency}}</p>
 
                     <div class="botones" >                       
                         <a [routerLink]="['/select-plane', hotel.id]" routerLinkActive="router-link-active" class="btn btn-md btn-danger">Seleccionar</a>

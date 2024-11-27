@@ -1,0 +1,27 @@
+<br>
+<h2>Mis Reservas</h2>
+<hr>
+<div *ngIf="!bookingList">
+    Cargando listado de reservas ....
+</div>
+
+<div *ngIf="bookingList">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Hotel</th>
+                <th scope="col">Vuelo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booking of bookingList">
+                <th scope="row">{{booking.id}}</th>
+                <td>{{booking.name}}</td>
+                <td>{{booking.hotelId}}</td>
+                <td>{{booking.flightId}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
