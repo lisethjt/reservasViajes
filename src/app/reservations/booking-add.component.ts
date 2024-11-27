@@ -7,11 +7,13 @@ import { subscribe } from 'diagnostics_channel';
 import { FlightService } from '../services/flight.service';
 import { Flight } from '../models/flight';
 import { Booking } from '../models/booking';
+import { Router } from '@angular/router';
+import { BookingService } from '../services/booking.service';
 
 @Component({
   selector: 'app-booking-add',
   templateUrl: '../views/reservations/booking-add.component.html',
-  providers: [HotelService, FlightService]
+  providers: [HotelService, FlightService, BookingService]
 })
 export class BookingAddComponent {
 
@@ -24,7 +26,9 @@ export class BookingAddComponent {
 
   constructor(
     private _hotelService: HotelService, 
-    private _flightService: FlightService
+    private _flightService: FlightService,
+    private _bookingService: BookingService,
+    private _router: Router
   ) {
 
     this.hotelId = sessionStorage.getItem('hotelId');
@@ -64,6 +68,17 @@ export class BookingAddComponent {
   }
 
   onSubmit(){
-    
+    this.saveBooking();
+  }
+
+  saveBooking() {
+    this._bookingService.addBooking(this.booking).subscribe(
+      (response: any) => {
+        this._router.navigate(['/bookings']);
+      },
+      (error: any) => {
+        console.log(<any>error);
+      }
+    );
   }
 }
