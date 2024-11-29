@@ -11,16 +11,20 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Hotel</th>
-                <th scope="col">Vuelo</th>
+                <th scope="col">Fecha</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let booking of bookingList">
                 <th scope="row">{{booking.id}}</th>
                 <td>{{booking.name}}</td>
-                <td>{{booking.hotelId}}</td>
-                <td>{{booking.flightId}}</td>
+                <td>{{booking.date | date:"medium"}}</td>
+                <td>
+                    <div class="d-grid gap-2 d-md-block">                       
+                        <a href="#" class="btn btn-md btn-danger">Detalles</a>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

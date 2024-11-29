@@ -5,7 +5,8 @@ export class Booking {
         public dni: String, 
         public name: String,
         public hotelId: number,
-        public flightId: number
+        public flightId: number,
+        public date: Date
                 )
     {}
 

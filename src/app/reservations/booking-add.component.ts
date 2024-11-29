@@ -37,7 +37,7 @@ export class BookingAddComponent {
     this.title = "Reservas";
     this.hotel = new Hotel(0, '', '', 0, '');
     this.flight = new Flight(0, '', new Date(), 0, '');
-    this.booking = new Booking(0, '','', this.hotelId, this.flightId);
+    this.booking = new Booking(0, '','', this.hotelId, this.flightId, new Date());
   }
 
   ngOnInit(): void {   
