@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ModalService } from '../services/modal.service'; 
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { HotelService } from '../services/hotel.service';
@@ -12,11 +20,16 @@ import { Hotel } from '../models/hotel';
 })
 export class HotelSelectComponent {
 
+  @ViewChild('modal', { read: ViewContainerRef })
+  entry!: ViewContainerRef;
+  sub!: Subscription;
+
   public titulo: String;
   public hotelsList: Hotel[];
  
   constructor(
     private _hotelService: HotelService,
+    private _modalService: ModalService,
     private _sanitizer: DomSanitizer) {
     this.titulo = "Hoteles";
     this.hotelsList = [];    
@@ -28,8 +41,16 @@ export class HotelSelectComponent {
         this.hotelsList = result;
       },
       (error: any) => {
-        console.log(<any>error);
+        this.sub = this._modalService
+        .openModal(this.entry, 'Error ' , "Estamos presentando inconvenientes. Intente más tarde")
+        .subscribe((v: any) => {
+          
+        });
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    if (this.sub) this.sub.unsubscribe();
   }
 }

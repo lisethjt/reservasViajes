@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ModalService } from '../services/modal.service'; 
 
 
 import { HotelService } from '../services/hotel.service';
@@ -17,6 +25,10 @@ import { BookingService } from '../services/booking.service';
 })
 export class BookingAddComponent {
 
+  @ViewChild('modal', { read: ViewContainerRef })
+  entry!: ViewContainerRef;
+  sub!: Subscription;
+
   public title: String;
   public hotel: Hotel;
   public flight: Flight;
@@ -25,9 +37,10 @@ export class BookingAddComponent {
   public booking: Booking;
 
   constructor(
-    private _hotelService: HotelService, 
+    private _hotelService: HotelService,
     private _flightService: FlightService,
     private _bookingService: BookingService,
+    private _modalService: ModalService,
     private _router: Router
   ) {
 
@@ -37,10 +50,10 @@ export class BookingAddComponent {
     this.title = "Reservas";
     this.hotel = new Hotel(0, '', '', 0, '');
     this.flight = new Flight(0, '', new Date(), 0, '');
-    this.booking = new Booking(0, '','', this.hotelId, this.flightId, new Date());
+    this.booking = new Booking(0, '', '', this.hotelId, this.flightId, new Date());
   }
 
-  ngOnInit(): void {   
+  ngOnInit(): void {
     this.getHotel();
     this.getFlight();
   }
@@ -48,7 +61,7 @@ export class BookingAddComponent {
   getHotel() {
     this._hotelService.getHotel(this.hotelId).subscribe(
       (result: any) => {
-        this.hotel = result;       
+        this.hotel = result;
       },
       (error: any) => {
         console.log(<any>error);
@@ -56,18 +69,22 @@ export class BookingAddComponent {
     );
   }
 
-  getFlight(){
+  getFlight() {
     this._flightService.getFlight(this.flightId).subscribe(
-      (result:any)=>{
+      (result: any) => {
         this.flight = result.flight;
       },
-      (error: any) => {
-        console.log(<any>error);
+      (error: any) => {        
+        this.sub = this._modalService
+      .openModal(this.entry, 'Error ' , "Estamos presentando inconvenientes. Intente más tarde")
+      .subscribe((v: any) => {
+        
+      });
       }
     );
   }
 
-  onSubmit(){
+  onSubmit() {
     this.saveBooking();
   }
 
@@ -80,5 +97,9 @@ export class BookingAddComponent {
         console.log(<any>error);
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    if (this.sub) this.sub.unsubscribe();
   }
 }

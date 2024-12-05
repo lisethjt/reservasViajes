@@ -1,3 +1,4 @@
+
 <br>
 <h2>Mis Reservas</h2>
 <hr>
@@ -21,8 +22,9 @@
                 <td>{{booking.name}}</td>
                 <td>{{booking.date | date:"medium"}}</td>
                 <td>
-                    <div class="d-grid gap-2 d-md-block">                       
-                        <a href="#" class="btn btn-md btn-danger">Detalles</a>
+                    <div class="modal-container">                  
+                        <button (click)="openModal(booking.id, booking.hotelId , booking.flightId)" class="btn btn-md btn-danger">Details</button>
+                        <div #modal></div>
                     </div>
                 </td>
             </tr>

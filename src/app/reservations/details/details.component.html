@@ -1,0 +1,45 @@
+<div class="modal-container">
+  <div style="
+        width: 650px;
+        height: auto;
+        border: olive 1px solid;
+        background-color: white;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      ">
+    <h1 class="title">{{ title }}</h1>
+    <hr>
+
+    <div class="container">
+      <div class="row align-items-start">
+        <div class="col card m-2">
+          <div class="card-header">
+            <strong>Hotel</strong>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{hotel.name}}</p>
+            <p class="card-text">{{hotel.price | currency}}</p>
+        </div>
+        </div>
+
+
+        <div class="col card m-2">
+          <div class="card-header">
+            <strong>Vuelo</strong>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{flight.company}}, {{flight.date | date:"medium"}}</p>
+            <p class="card-text">{{flight.price | currency}}</p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-container">
+      <button (click)="closeMe()" class="btn btn-md btn-danger">Cerrar</button>
+    </div>
+  </div>
+</div>
